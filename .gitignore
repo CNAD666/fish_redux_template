@@ -1,0 +1,6 @@
+# Miscellaneous
+.idea/
+build
+.gradle
+.gitattribute
+fish_redux_template.jar

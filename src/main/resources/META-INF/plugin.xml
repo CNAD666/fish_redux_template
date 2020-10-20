@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.tao.fish_redux_template</id>
+    <name>Fish Redux</name>
+    <version>1.0.0</version>
+    <vendor email="xdd666@foxmail.com" url="https://github.com/CNAD666">CNAD666</vendor>
+
+    <description><![CDATA[
+      fish_redux_template<br>
+      Used to produce fish_redux template code<br>
+      operating guide: Right click on the file：New -> FishRedux <br>
+      <em></em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      fish_redux_template plugin version:1.0.0<br>
+      <em>
+      - add to produce template code
+      - plugin layout optimization
+      </em>
+    ]]></change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="con.tao.NewFishReduxTemplate" class="NewFishRedux" text="Fish Redux"
+                description="Create fish_redux Template Code">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
