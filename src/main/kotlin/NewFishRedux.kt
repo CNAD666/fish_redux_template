@@ -1,6 +1,7 @@
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.ui.DialogPanel
+import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.ui.ValidationInfo
 import com.intellij.ui.components.dialog
 import com.intellij.ui.layout.cellPanel
@@ -50,23 +51,29 @@ class NewFishRedux : AnAction() {
     }
 
     private fun showDialog(view: JComponent) {
-        var reduxDialog = dialog(
+        dialog(
             title = "Fish Redux Code Generation",
             panel = view,
             ok = {
+                //点击OK按钮会调用该方法
+                //Messages.showMessageDialog("Hello World !", "Information", Messages.getInformationIcon())
 
-                dialog(title = "测试Ok回调", panel = panel{ row { label("测试回调") }})
-
-                test()
+                //是否满足条件关闭ok弹窗
+                isCanClose()
             }
         ).show()
 
     }
 
-    private fun test(): List<ValidationInfo> {
+    private fun isCanClose(): List<ValidationInfo> {
         val list = mutableListOf<ValidationInfo>()
 
+        //点击确定按钮不会消失,且提示相关内容
         list.add(ValidationInfo("测试OK回调"))
-        return list
+        list.add(ValidationInfo("Please input module name"))
+
+        //可以直接关闭进行后续逻辑操作
+        return listOfNotNull()
+//        return  list
     }
 }
