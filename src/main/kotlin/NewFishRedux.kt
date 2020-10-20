@@ -53,13 +53,7 @@ class NewFishRedux : AnAction() {
     private fun showDialog(view: JComponent) {
         dialog(
             title = "Fish Redux Code Generation",
-            panel = panel{
-                titledRow("帅比") {
-                    row("Select  Module") {
-                        label(text = "我是大帅比")
-                    }
-                }
-            },
+            panel =view,
             ok = {
                 //点击OK按钮会调用该方法
                 //Messages.showMessageDialog("Hello World !", "Information", Messages.getInformationIcon())
