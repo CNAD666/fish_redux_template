@@ -53,7 +53,13 @@ class NewFishRedux : AnAction() {
     private fun showDialog(view: JComponent) {
         dialog(
             title = "Fish Redux Code Generation",
-            panel = view,
+            panel = panel{
+                titledRow("帅比") {
+                    row("Select  Module") {
+                        label(text = "我是大帅比")
+                    }
+                }
+            },
             ok = {
                 //点击OK按钮会调用该方法
                 //Messages.showMessageDialog("Hello World !", "Information", Messages.getInformationIcon())
@@ -66,14 +72,16 @@ class NewFishRedux : AnAction() {
     }
 
     private fun isCanClose(): List<ValidationInfo> {
-        val list = mutableListOf<ValidationInfo>()
+        val list = ArrayList<ValidationInfo>()
 
-        //点击确定按钮不会消失,且提示相关内容
-        list.add(ValidationInfo("测试OK回调"))
-        list.add(ValidationInfo("Please input module name"))
+        val isAccess = 2
+        if (isAccess == 1) {
+            //点击确定按钮不会消失,且提示相关内容
+            list.add(ValidationInfo("测试OK回调"))
+            list.add(ValidationInfo("Please input module name"))
+        }
 
-        //可以直接关闭进行后续逻辑操作
-        return listOfNotNull()
-//        return  list
+        //list未添加元素，弹窗会直接关闭，可以进行后续逻辑操作
+        return  list
     }
 }
